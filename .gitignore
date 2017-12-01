@@ -1,0 +1,9 @@
+.DS_Store
+public
+distr
+node_modules
+.idea
+*.log
+.vscode
+*.lock
+jsconfig.json

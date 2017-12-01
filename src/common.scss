@@ -1,0 +1,12 @@
+// libraries
+@import '~normalize-scss/sass/normalize';
+
+@include normalize();
+
+// core
+@import '/assets/scss/variables';
+@import '/assets/scss/mixins';
+@import '/assets/scss/extends';
+
+// app component
+@import 'components/app/AppComponent';

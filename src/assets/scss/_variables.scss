@@ -1,0 +1,31 @@
+// палитра
+$main: #073288;
+$secondary: #F6A906;
+$additional: #1B95E0;
+$warning: #F05758;
+$success: #2ECC71;
+
+// точки адаптации
+// desctruct points используются, в основном, с min-width
+$desktop-sm: 1560px;
+$desktop-xs: 1440px;
+$desktop-md-desctruct-point: 1281px;
+$desktop-md: 1280px;
+$tablet-upper-max-desctruct-point: 1025px;
+$tablet-upper-max: 1024px; // iPad mini landscape
+$tablet-max-desctruct-point: 993px;
+$tablet-max: 992px;
+$mobile-upper-max-desctruct-point: 855px;
+$mobile-upper-max: 854px; // nokia n9 landscape
+$mobile-max-desctruct-point: 769px;
+$mobile-max: 768px;
+$mobile-upper-md-desctruct-point: 601px;
+$mobile-upper-md: 600px; // nexus 7 portrait
+$mobile-md-destruct-point: 569px;
+$mobile-md: 568px; // iPhone 5 landscape
+$mobile-upper-sm: 490px;
+$mobile-sm-desctruct-point: 481px;
+$mobile-sm: 480px;
+$mobile-between-sm-xs: 420px;
+$mobile-xs-destruct-point: 361px;
+$mobile-xs: 360px;
