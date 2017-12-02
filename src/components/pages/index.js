@@ -1,9 +1,9 @@
-import Home from './home/Home';
-import List from './list/List';
-import NoMatch from './no-match/NoMatch';
+import HomeComponent from './home/HomeComponent';
+import ListComponent from './list/ListComponent';
+import NoMatchComponent from './no-match/NoMatchComponent';
 
 export {
-    Home,
-    List,
-    NoMatch
+    HomeComponent,
+    ListComponent,
+    NoMatchComponent
 };

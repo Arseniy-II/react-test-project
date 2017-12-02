@@ -1,18 +1,22 @@
-const flattenObject = function(ob) {
+const flattenObject = (object) => {
     const toReturn = {};
 
-    for (const i in ob) {
-        if (!ob.hasOwnProperty(i)) continue;
+    for (const key in object) {
+        if (!object.hasOwnProperty(key)) {
+            continue;
+        }
 
-        if ((typeof ob[i]) == 'object') {
-            const flatObject = flattenObject(ob[i]);
+        if ((typeof object[key]) === 'object') {
+            const flatObject = flattenObject(object[key]);
             for (const x in flatObject) {
-                if (!flatObject.hasOwnProperty(x)) continue;
+                if (!flatObject.hasOwnProperty(x)) {
+                    continue;
+                }
 
-                toReturn[i + '.' + x] = flatObject[x];
+                toReturn[key + '.' + x] = flatObject[x];
             }
         } else {
-            toReturn[i] = ob[i];
+            toReturn[key] = object[key];
         }
     }
     return toReturn;

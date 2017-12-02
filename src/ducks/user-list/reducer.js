@@ -1,7 +1,7 @@
 import types from './types';
 
 export const initialAppState = {
-    isLoading: true,
+    isFetching: true,
     error: null,
     list: []
 };
@@ -11,7 +11,7 @@ export default function (state = initialAppState, action) {
         case types.FETCH_USER_LIST_REQUEST:
             return {
                 ...state,
-                isLoading: true
+                isFetching: true
             };
         case types.FETCH_USER_LIST_SUCCESS:
             return {
@@ -19,13 +19,13 @@ export default function (state = initialAppState, action) {
                 list: {
                     ...action.list
                 },
-                isLoading: false
+                isFetching: false
             };
         case types.FETCH_USER_LIST_ERROR:
             return {
                 ...state,
                 error: action.error,
-                isLoading: false
+                isFetching: false
             };
         default:
             return state;

@@ -24,10 +24,15 @@ function* navigationSaga(action) {
 /**
  * Push route to browser history
  *
- * @param {string} action.route
+ * @param {string} route
+ * @param {Object} params
  */
-function* changeRouteSaga(action) {
-    yield put(push(action.route));
+function* changeRouteSaga({route, params}) {
+    let fullRoute = route;
+    for(const key in params) {
+        fullRoute = fullRoute + `?${key}=${params[key]}`;
+    }
+    yield put(push(fullRoute));
 }
 
 export default function* routerRootSaga() {

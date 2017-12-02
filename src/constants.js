@@ -11,7 +11,7 @@ export const API_REQUESTS = {
 };
 
 export const LOCALES = {
-    DEFAULT: 'en',
+    DEFAULT: 'ru',
     EN: 'en',
     RU: 'ru'
 };

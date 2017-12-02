@@ -2,7 +2,7 @@ import types from './types';
 import {LOCALES} from 'constants.js';
 
 export const initialAppState = {
-    isLoading: true,
+    isFetching: true,
     error: null,
     locale: LOCALES.DEFAULT,
     i18n: null
@@ -13,20 +13,20 @@ export default function (state = initialAppState, action) {
         case types.FETCH_I18N_REQUEST:
             return {
                 ...state,
-                isLoading: true
+                isFetching: true
             };
         case types.FETCH_I18N_SUCCESS:
             return {
                 ...state,
                 i18n: action.i18n,
                 locale: action.locale,
-                isLoading: false
+                isFetching: false
             };
         case types.FETCH_I18N_ERROR:
             return {
                 ...state,
                 error: action.error,
-                isLoading: false
+                isFetching: false
             };
         default:
             return state;

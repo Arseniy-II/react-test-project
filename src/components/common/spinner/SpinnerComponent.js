@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function SpinnerComponent(props) {
+export default function SpinnerComponent() {
     return (
-        <div className="spinner"/>
-    )
+        <div className='spinner'>
+            <div className='spinner-item'/>
+        </div>
+    );
 }
 
 SpinnerComponent.propTypes = {
-    class: PropTypes.string
+    spinnerWrapperClass: PropTypes.string
 };

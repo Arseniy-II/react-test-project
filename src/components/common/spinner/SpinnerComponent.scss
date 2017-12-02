@@ -1,7 +1,15 @@
 .spinner {
-    width: 100px;
-    height: 100px;
-    background-size: cover;
-    background-position: center;
-    background-image: url('assets/images/spinner.gif');
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    &-item {
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        background-position: center;
+        flex: 0 0 auto;
+        background-image: url('assets/images/spinner.gif');
+    }
 }
