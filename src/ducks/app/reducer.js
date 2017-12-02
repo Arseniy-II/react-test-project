@@ -5,7 +5,7 @@ export const initialAppState = {
     isLoading: true,
     error: null,
     locale: LOCALES.DEFAULT,
-    i18n: {}
+    i18n: null
 };
 
 export default function (state = initialAppState, action) {
@@ -18,9 +18,8 @@ export default function (state = initialAppState, action) {
         case types.FETCH_I18N_SUCCESS:
             return {
                 ...state,
-                i18n: {
-                    ...action.i18n
-                },
+                i18n: action.i18n,
+                locale: action.locale,
                 isLoading: false
             };
         case types.FETCH_I18N_ERROR:

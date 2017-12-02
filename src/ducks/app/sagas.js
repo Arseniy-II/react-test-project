@@ -11,10 +11,10 @@ function* initSaga() {
 /**
  * Fetch locale saga
  */
-function* fetchLocaleSaga(action) {
+function* fetchLocaleSaga({locale}) {
     try {
-        const {i18n} = yield call(service.fetchI18n, action.locale);
-        yield put(actions.fetchI18nSuccess(i18n));
+        const {i18n} = yield call(service.fetchI18n, locale);
+        yield put(actions.fetchI18nSuccess({i18n, locale}));
     } catch (error) {
         yield put(actions.fetchI18nError(error));
     }

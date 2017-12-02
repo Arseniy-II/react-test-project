@@ -7,6 +7,7 @@ export default {
      */
     selectLocale({app: state}) {
         return {
+            isLoading: state.isLoading,
             i18n: state.i18n,
             locale: state.locale
         };

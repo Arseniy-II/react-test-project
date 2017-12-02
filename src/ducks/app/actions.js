@@ -18,10 +18,11 @@ export default {
      *
      * @return {Object}
      */
-    fetchI18nSuccess(i18n) {
+    fetchI18nSuccess({i18n, locale}) {
         return {
             type: types.FETCH_I18N_SUCCESS,
-            i18n
+            i18n,
+            locale
         };
     },
 

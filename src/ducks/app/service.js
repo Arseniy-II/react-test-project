@@ -4,7 +4,7 @@ import {mapErrorResponse} from 'ducks/shared/mappers';
 
 const appService = {
     fetchI18n(locale) {
-        return request.get(API_REQUESTS.I18N, {locale})
+        return request.get(API_REQUESTS.I18N, {params: {locale}})
             .then(
                 response => ({
                     i18n: response.data
