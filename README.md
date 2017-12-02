@@ -13,5 +13,5 @@ npm install
 
 ## Run application
 - `npm run dev` - run webpack dev server;
-- `npm run prod` - build production bundle;
-- `npm run local-server` - start local server with browser history fallback.
+- `npm run build` - build production bundle;
+- `npm run server` - start local server with to serve api response.

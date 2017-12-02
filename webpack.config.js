@@ -53,7 +53,10 @@ const config = {
         port: 8080,
         contentBase: './public',
         historyApiFallback: true,
-        hot: true
+        hot: true,
+        proxy: {
+            "/api": "http://localhost:8081"
+        }
     },
 
     module: {
