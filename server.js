@@ -18,10 +18,10 @@ app.use(history({
 app.use(staticFileMiddleware);
 
 // routes configuration
-const peopleRoutes = require('./server-routes/people');
+const userListRoutes = require('./server-routes/user-list');
 const i18nRoutes = require('./server-routes/i18n');
 
-app.use('/api/people', peopleRoutes);
+app.use('/api/userList', userListRoutes);
 app.use('/api/i18n', i18nRoutes);
 
 const port = 8081;

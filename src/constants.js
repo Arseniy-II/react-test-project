@@ -6,7 +6,8 @@ export const Routes = {
 export const API = 'api/';
 
 export const API_REQUESTS = {
-    I18N: '/i18n'
+    I18N: '/i18n',
+    USER_LIST: '/userList'
 };
 
 export const LOCALES = {

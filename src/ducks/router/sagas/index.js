@@ -1,15 +1,15 @@
-import {Routes} from 'constants.js';
-import rootSaga from './root-saga';
-import {put, takeLatest, call} from 'redux-saga/effects';
+import userListSaga from './user-list-saga';
 import types from '../types';
 import {push, LOCATION_CHANGE} from 'react-router-redux';
+import {put, takeLatest, call} from 'redux-saga/effects';
+import {Routes} from 'constants.js';
 
 const SAGA_FOR_ROUTE = {
-    [Routes.ROOT]: rootSaga
+    [Routes.LIST]: userListSaga
 };
 
 /**
- * Start some logic on route change
+ * Start some logic on route change specific from route
  *
  * @param {string} action.payload.pathname
  */
