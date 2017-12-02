@@ -2,37 +2,38 @@ import types from './types';
 
 export default {
     /**
-     * Initialize the application
+     * Request fetch i18n
      *
      * @return {Object}
      */
-    initApplication() {
+    fetchI18nRequest(locale) {
         return {
-            type: types.INIT_APPLICATION_START
+            type: types.FETCH_I18N_REQUEST,
+            locale
         };
     },
 
     /**
-     * Successful initialization of the application
+     * Successfully fetch i18n
      *
      * @return {Object}
      */
-    successInit() {
+    fetchI18nSuccess(i18n) {
         return {
-            type: types.INIT_APPLICATION_SUCCESS
+            type: types.FETCH_I18N_SUCCESS,
+            i18n
         };
     },
 
     /**
-     * Unsuccessful initialization of the application
+     * Error on fetch i18n
      *
-     * @param {Object} error
      * @return {Object}
      */
-    unsuccessfulInit(error) {
+    fetchI18nError(i18n) {
         return {
-            type: types.INIT_APPLICATION_ERROR,
-            error
+            type: types.FETCH_I18N_ERROR,
+            i18n
         };
     }
 };

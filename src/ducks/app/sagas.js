@@ -1,27 +1,28 @@
 import types from './types';
-// import actions from './actions';
-import {
-    // put,
-    takeLatest,
-    all
-    // call
-} from 'redux-saga/effects';
-// import service from './service';
+import actions from './actions';
+import {takeLatest, all, fork, put, call} from 'redux-saga/effects';
+import {LOCALES} from 'constants.js';
+import service from './service';
+
+function* initSaga() {
+    yield put(actions.fetchI18nRequest(LOCALES.DEFAULT));
+}
 
 /**
  * Fetch locale saga
  */
-function* fetchLocaleSaga() {
-    // try {
-    //     const locale = yield call(service.fetchLocale);
-    //     yield put(actions.fetchLocaleSuccess(locale));
-    // } catch (error) {
-    //     yield put(actions.fetchLocaleError(error));
-    // }
+function* fetchLocaleSaga(action) {
+    try {
+        const {i18n} = yield call(service.fetchI18n, action.locale);
+        yield put(actions.fetchI18nSuccess(i18n));
+    } catch (error) {
+        yield put(actions.fetchI18nError(error));
+    }
 }
 
 export default function* rootAppSaga() {
     yield all([
-        takeLatest(types.FETCH_LOCALE_REQUEST, fetchLocaleSaga)
+        fork(initSaga),
+        takeLatest(types.FETCH_I18N_REQUEST, fetchLocaleSaga)
     ]);
 }

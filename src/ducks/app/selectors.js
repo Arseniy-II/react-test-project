@@ -1,13 +1,14 @@
 export default {
     /**
-     * Select initial loading module
+     * Select Locale
      *
-     * @param {Immutable.Map} state
+     * @param {Object} state
      * @return {Object}
      */
-    selectInit(state) {
+    selectLocale({app: state}) {
         return {
-            isLoading: state.isLoading
+            i18n: state.i18n,
+            locale: state.locale
         };
     }
 };
