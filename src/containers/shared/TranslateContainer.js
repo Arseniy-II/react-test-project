@@ -19,4 +19,8 @@ function TranslateProvider(props) {
     );
 }
 
+TranslateProvider.propTypes = {
+    children: PropTypes.element.isRequired
+};
+
 export default connect(null)(TranslateProvider);

@@ -1,7 +1,12 @@
 import types from './types';
-import actions from './actions';
-import {put, takeLatest, all, call} from 'redux-saga/effects';
-import service from './service';
+// import actions from './actions';
+import {
+    // put,
+    takeLatest,
+    all
+    // call
+} from 'redux-saga/effects';
+// import service from './service';
 
 /**
  * Fetch locale saga
@@ -17,6 +22,6 @@ function* fetchLocaleSaga() {
 
 export default function* rootAppSaga() {
     yield all([
-        takeLatest(types.FETCH_LOCALE_REQUEST, fetchLocaleSaga),
+        takeLatest(types.FETCH_LOCALE_REQUEST, fetchLocaleSaga)
     ]);
 }

@@ -140,7 +140,7 @@
         "no-mixed-spaces-and-tabs": "error",
         "no-multiple-empty-lines": "error",
         "no-spaced-func": "error",
-        "no-trailing-spaces": "error",
+        "no-trailing-spaces": "off",
         "no-constant-condition": "off",
         "no-case-declarations": "off",
         "no-fallthrough": "off",

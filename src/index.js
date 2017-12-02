@@ -1,27 +1,27 @@
 import 'babel-polyfill';
 import React from 'react';
 import {render} from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
+import {AppContainer as HotLoader} from 'react-hot-loader';
 import {ConnectedRouter} from 'react-router-redux';
 import {Provider} from 'react-redux';
-import {TranslateContainer as TranslateProvider, AppContainer as App} from 'containers';
+import {TranslateContainer, AppContainer} from 'containers';
 import store, {history} from 'store';
 
 window.Intl = require('intl');
 
 const renderApp = Component =>
     render(
-        <AppContainer>
+        <HotLoader>
             <Provider store={store}>
-                <TranslateProvider>
+                <TranslateContainer>
                     <ConnectedRouter history={history}>
                         <Component/>
                     </ConnectedRouter>
-                </TranslateProvider>
+                </TranslateContainer>
             </Provider>
-        </AppContainer>,
+        </HotLoader>,
         document.getElementById('app')
     );
 
-renderApp(App);
-if (module.hot) {module.hot.accept('containers', () => renderApp(App));}
+renderApp(AppContainer);
+if (module.hot) {module.hot.accept('containers', () => renderApp(AppContainer));}

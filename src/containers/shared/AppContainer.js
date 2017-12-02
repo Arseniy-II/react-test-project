@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 
 class AppContainer extends Component {
     render() {
-        return <AppComponent />;
+        return <AppComponent/>;
     }
 }
 

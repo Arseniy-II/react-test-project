@@ -193,7 +193,7 @@ const config = {
 
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /fr/),
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             openAnalyzer: false,
