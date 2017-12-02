@@ -1,14 +1,13 @@
 const
     router = require('express').Router(),
+    asyncResponse = require('./async-middleware').asyncResponse,
+    asyncFileRead = require('./async-middleware').asyncFileRead;
 
-    asyncMiddleware = require('./async-middleware');
-
-router.get('/', asyncMiddleware(
+// TODO translate i18n/en.json at the end to avoid multiple translations
+router.get('/', asyncResponse(
     async (req, res) => {
-        const {locale} = req.query;
-        const i18n = locale === 'ru' ? {title: 'привет'} : {title: 'hello'};
-
-        // const jobHighlights = await JobModel.find(searchParams, ['name', 'src']);
+        const {locale = 'en'} = req.query;
+        const i18n = await asyncFileRead(`./data/i18n/${locale}.json`, 'utf8');
         res.send(i18n);
     })
 );

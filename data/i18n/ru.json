@@ -1,0 +1,34 @@
+{
+    "plurals": {
+        "age": {
+            "one": "год",
+            "few": "года",
+            "many": "лет"
+        }
+    },
+    "shared": {
+        "list": "Таблица",
+        "preview": "Превью",
+        "view": "Вид",
+        "sorting": "Сортировка",
+        "id": "ID",
+        "name": "Имя",
+        "age": "Возраст",
+        "descending": "По убыванию",
+        "ascending": "По возрастанию"
+    },
+    "home": {
+        "title": "Тестовый проект",
+        "content": "",
+        "links": {
+            "git": {
+                "title": "Гит Репозиторй",
+                "content": "https://github.com/Arseniy-II/react-test-project.git"
+            },
+            "email": {
+                "title": "Email",
+                "content": "Arseniy.public@gmail.com"
+            }
+        }
+    }
+}
