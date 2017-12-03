@@ -7,14 +7,20 @@ import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComp
 export default function HomeComponent(props) {
     const {onRouteChange} = props;
     return (
-        <div>
-            <h1>
+        <div className="home">
+            <h1 className="home-title">
                 <FormattedMessage id='home.title'/>
             </h1>
-            <div>
+            <div className="home-block">
+                <h3 className="home-header">
+                    <FormattedMessage id="home.content-title"/>
+                </h3>
                 <FormattedMessage id="home.content"/>
             </div>
-            <div>
+            <div className="home-block">
+                <h3 className="home-header">
+                    <FormattedMessage id="home.links-title"/>
+                </h3>
                 <div>
                     <FormattedMessage id="home.links.git.title"/>
                     : <FormattedMessage id="home.links.git.content"/>
@@ -24,7 +30,10 @@ export default function HomeComponent(props) {
                     : <FormattedMessage id="home.links.email.content"/>
                 </div>
             </div>
-            <div>
+            <div className="home-block">
+                <h3 className="home-header">
+                    <FormattedMessage id="home.buttons-title"/>
+                </h3>
                 <ButtonsMenuComponent>
                     <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.LIST});}}>
                         <FormattedMessage id="list.list"/>

@@ -1,0 +1,33 @@
+#app {
+    display: flex;
+    flex: 1 1 auto;
+    font-family: 'Jura', sans-serif;
+    padding: 0 15px;
+    > div {
+        width: 100%;
+        height: 100%;
+    }
+}
+h1 {
+    font-size: 32px;
+    text-align: center;
+}
+h3 {
+    color: $main;
+    border-bottom: 1px solid $main;
+}
+@media screen and (min-width: $mobile-max) {
+    #app {
+        padding: 0 35px;
+    }
+}
+
+@media screen and (min-width: $desktop-md) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
+    #app {
+        max-width: $desktop-md;
+    }
+}
