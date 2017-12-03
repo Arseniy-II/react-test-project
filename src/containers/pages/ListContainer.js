@@ -15,7 +15,10 @@ class ListContainer extends Component {
     };
 
     _changeTextFilter = (e) => {
-        this.props.onRouteChange(Routes.LIST, {textFilter: e.target.value});
+        this.props.onRouteChange(Routes.LIST, {
+            ...this.props.query,
+            textFilter: e.target.value
+        });
     };
 
     render() {

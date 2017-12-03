@@ -1,4 +1,5 @@
 import types from './types';
+import {filterUsers} from 'utils';
 
 export const initialAppState = {
     isFetching: true,
@@ -6,16 +7,6 @@ export const initialAppState = {
     list: [],
     allIds: [],
     byId: {}
-};
-
-const parseArray = (userList) => {
-    const byId = {};
-    const allIds = [];
-    userList.forEach(user => {
-        byId[user.id] = user;
-        allIds.push(user.id);
-    });
-    return {byId, allIds};
 };
 
 export default function (state = initialAppState, action) {
@@ -26,10 +17,9 @@ export default function (state = initialAppState, action) {
                 isFetching: true
             };
         case types.FETCH_USER_LIST_SUCCESS:
-            // TODO filter correspond to action.query
             return {
                 ...state,
-                ...parseArray(action.list),
+                ...filterUsers(action.list, action.query),
                 isFetching: false
             };
         case types.FETCH_USER_LIST_ERROR:

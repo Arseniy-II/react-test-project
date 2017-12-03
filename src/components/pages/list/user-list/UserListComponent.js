@@ -7,16 +7,15 @@ export default function UserListComponent(props) {
         <div>
             <div style={{
                 backgroundImage: `url(assets/images/${user.image})` // TODO check url
-            }}>
+            }}/>
+            <div>
+                name {user.name}
             </div>
             <div>
-                {user.name}
+                age {user.age}
             </div>
             <div>
-                {user.age}
-            </div>
-            <div>
-                {user.phone}
+                phone {user.phone}
             </div>
             <div>
                 {user.favourite && 'star'}

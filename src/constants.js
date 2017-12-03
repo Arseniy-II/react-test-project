@@ -28,7 +28,7 @@ export const APPEARANCE = {
 
 export const DEFAULT_QUERY = {
     sorting: SORTING.ID,
-    directions: DIRECTION.DESCENDING,
+    direction: DIRECTION.DESCENDING,
     textFilter: '',
     appearance: APPEARANCE.LIST
 };

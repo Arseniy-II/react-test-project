@@ -5,7 +5,7 @@ export default function UserListComponent(props) {
     const {user} = props;
     return(
         <div>
-            user
+            {user}
         </div>
     );
 }

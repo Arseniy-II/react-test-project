@@ -23,29 +23,39 @@ export default function ListComponent(props) {
                     </div>
                     <div className="list-sorting__params">
                         <ButtonsMenuComponent>
-                            <a onClick={() => {onRouteChange(Routes.LIST, {sorting: SORTING.ID});}}>
+                            <a onClick={() => {
+                                onRouteChange(Routes.LIST, {...query, sorting: SORTING.ID});
+                            }}>
                                 <FormattedMessage
                                     id='list.id'
                                 />
                             </a>
-                            <a onClick={() => {onRouteChange(Routes.LIST, {sorting: SORTING.NAME});}}>
+                            <a onClick={() => {
+                                onRouteChange(Routes.LIST, {...query, sorting: SORTING.NAME});
+                            }}>
                                 <FormattedMessage
                                     id='list.name'
                                 />
                             </a>
-                            <a onClick={() => {onRouteChange(Routes.LIST, {sorting: SORTING.AGE});}}>
+                            <a onClick={() => {
+                                onRouteChange(Routes.LIST, {...query, sorting: SORTING.AGE});
+                            }}>
                                 <FormattedMessage
                                     id='list.age'
                                 />
                             </a>
                         </ButtonsMenuComponent>
                         <ButtonsMenuComponent>
-                            <a onClick={() => {onRouteChange(Routes.LIST, {directions: DIRECTION.ASCENDING});}}>
+                            <a onClick={() => {
+                                onRouteChange(Routes.LIST, {...query, direction: DIRECTION.ASCENDING});
+                            }}>
                                 <FormattedMessage
                                     id='list.ascending'
                                 />
                             </a>
-                            <a onClick={() => {onRouteChange(Routes.LIST, {directions: DIRECTION.DESCENDING});}}>
+                            <a onClick={() => {
+                                onRouteChange(Routes.LIST, {...query, direction: DIRECTION.DESCENDING});
+                            }}>
                                 <FormattedMessage
                                     id='list.descending'
                                 />
@@ -61,12 +71,18 @@ export default function ListComponent(props) {
                     </div>
                     <div className="list-sorting__params">
                         <ButtonsMenuComponent>
-                            <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.LIST});}}>
+                            <a
+                                onClick={() => {
+                                    onRouteChange(Routes.LIST, {...query, appearance: APPEARANCE.LIST});
+                                }}>
                                 <FormattedMessage
                                     id='list.list'
                                 />
                             </a>
-                            <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.VIEW});}}>
+                            <a
+                                onClick={() => {
+                                    onRouteChange(Routes.LIST, {...query, appearance: APPEARANCE.VIEW});
+                                }}>
                                 <FormattedMessage
                                     id='list.preview'
                                 />
