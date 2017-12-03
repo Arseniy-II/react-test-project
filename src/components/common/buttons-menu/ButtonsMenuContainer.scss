@@ -1,0 +1,22 @@
+.buttons-menu {
+    display: flex;
+    justify-content: space-evenly;
+    >a,
+    >button {
+        border: 1px solid $secondary;
+        color: $secondary;
+        flex: 0 0 auto;
+        padding: 10px 10px;
+        box-sizing: border-box;
+        height: 100%;
+        width: 120px;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            transition: color $fast;
+            color: darken($secondary, $enhanceValue);
+
+        }
+    }
+}
