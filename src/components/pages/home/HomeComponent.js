@@ -39,7 +39,7 @@ export default function HomeComponent(props) {
                         <FormattedMessage id="list.list"/>
                     </a>
                     <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.VIEW});}}>
-                        <FormattedMessage id="list.view"/>
+                        <FormattedMessage id="list.preview"/>
                     </a>
                 </ButtonsMenuComponent>
             </div>

@@ -4,9 +4,12 @@ import {FormattedPlural, FormattedMessage} from 'react-intl';
 import {StarIcon} from 'components/icons';
 
 export default function UserListComponent(props) {
-    const {user, onAddToFavourite} = props;
+    const {user, onAddToFavourite, onSaveOffsetTop, isVisible} = props;
     return (
-        <div className="user-list">
+        <div ref={onSaveOffsetTop}
+             className={`user-list
+            ${isVisible ? 'user-list_visible' : ''}
+            `}>
             <div className="user-list-block user-list-main">
                 <div className="user-list-avatar"
                      style={{
@@ -41,6 +44,8 @@ export default function UserListComponent(props) {
 }
 
 UserListComponent.propTypes = {
+    isVisible: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
-    onAddToFavourite: PropTypes.func.isRequired
+    onAddToFavourite: PropTypes.func.isRequired,
+    onSaveOffsetTop: PropTypes.func.isRequired
 };
