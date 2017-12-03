@@ -4,9 +4,13 @@ import {FormattedPlural, FormattedMessage} from 'react-intl';
 import {StarIcon} from 'components/icons';
 
 export default function UserViewComponent(props) {
-    const {user, onAddToFavourite} = props;
+    const {user, onAddToFavourite, onSaveOffsetTop, isVisible} = props;
     return (
-        <div className={`user-view ${user.video ? 'user-view_full' : ''}`}>
+        <div ref={onSaveOffsetTop}
+            className={`user-view
+            ${user.video ? 'user-view_full' : ''}
+            ${isVisible ? 'user-view_visible' : ''}
+            `}>
             <div className="user-view-info">
 
                 <div className="info-block">
@@ -60,6 +64,8 @@ export default function UserViewComponent(props) {
 }
 
 UserViewComponent.propTypes = {
+    isVisible: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
-    onAddToFavourite: PropTypes.func.isRequired
+    onAddToFavourite: PropTypes.func.isRequired,
+    onSaveOffsetTop: PropTypes.func.isRequired
 };

@@ -21,5 +21,17 @@ export default {
         return {
             query: state.routing.locationBeforeTransitions.query
         };
+    },
+
+    /**
+     * Select search from url
+     *
+     * @param {Object} state
+     * @return {Object}
+     */
+    selectSearch(state) {
+        return {
+            search: state.routing.locationBeforeTransitions.search
+        };
     }
 };

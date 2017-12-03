@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Routes, SORTING, DIRECTION, APPEARANCE} from 'constants.js';
 import {FormattedMessage} from 'react-intl';
-import {UserViewContainer, UserListContainer} from 'containers';
+import {UserContainer} from 'containers';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
 
 export default function ListComponent(props) {
-    const {onRouteChange, onTextChange, query, userList} = props;
-    const users = userList.map(user => (query.appearance === APPEARANCE.LIST ?
-            <UserListContainer key={user.id} user={user}/> :
-            <UserViewContainer key={user.id} user={user}/>
+    const {onRouteChange, onTextChange, query, userList, visibleHeight, search} = props;
+    const users = userList.map((user, index) => (
+        <UserContainer
+            key={`${user.id}-${search}-${index}`}
+            user={user}
+            visibleHeight={visibleHeight}
+            appearance={query.appearance}
+        />
     ));
     return (
         <div className="list">
@@ -117,7 +121,9 @@ export default function ListComponent(props) {
 }
 
 ListComponent.propTypes = {
+    search: PropTypes.string.isRequired,
     onTextChange: PropTypes.func.isRequired,
+    visibleHeight: PropTypes.number.isRequired,
     onRouteChange: PropTypes.func.isRequired,
     query: PropTypes.object.isRequired,
     userList: PropTypes.arrayOf(PropTypes.object).isRequired
