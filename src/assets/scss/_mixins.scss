@@ -1,6 +1,27 @@
 @mixin page {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 100vh;
+}
+
+@mixin star {
+    .icon-container {
+        flex: 0 0 auto;
+    }
+    svg {
+        cursor: pointer;
+        polygon {
+            fill: none;
+            stroke: $main;
+            stroke-width: 30;
+        }
+    }
+    &_active {
+        svg {
+            polygon {
+                fill: $additional;
+            }
+        }
+    }
 }

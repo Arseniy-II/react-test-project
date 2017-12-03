@@ -1,0 +1,34 @@
+.list {
+    @include page;
+    &-block,
+    &-title {
+        flex: 0 0 auto;
+    }
+    &-title {
+        width: 100%;
+    }
+    &-user-block {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-buttons-block {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    &-buttons-menu {
+        flex: 0 0 auto;
+        .buttons-menu {
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (min-width: $mobile-max) {
+    .list {
+        &-buttons-menu {
+            .buttons-menu {
+                flex-direction: row;
+            }
+        }
+    }
+}

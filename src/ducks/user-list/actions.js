@@ -52,5 +52,18 @@ export default {
             type: types.FETCH_USER_LIST_ERROR,
             query
         };
+    },
+
+    /**
+     * Add user to favourite
+     *
+     * @params {string} id
+     * @return {Object}
+     */
+    addToFavourite(id) {
+        return {
+            type: types.ADD_TO_FAVOURITE,
+            id
+        };
     }
 };

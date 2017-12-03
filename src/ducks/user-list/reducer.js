@@ -28,6 +28,17 @@ export default function (state = initialAppState, action) {
                 error: action.error,
                 isFetching: false
             };
+        case types.ADD_TO_FAVOURITE:
+            return {
+                ...state,
+                byId: {
+                    ...state.byId,
+                    [action.id]: {
+                        ...state.byId[action.id],
+                        favourite: !state.byId[action.id].favourite
+                    }
+                }
+            };
         default:
             return state;
     }

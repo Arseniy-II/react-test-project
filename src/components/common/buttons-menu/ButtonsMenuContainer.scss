@@ -15,8 +15,13 @@
         cursor: pointer;
         &:hover {
             transition: color $fast;
-            color: darken($secondary, $enhanceValue);
+            color: saturate($additional, $enhanceValue);
 
         }
+    }
+    .active {
+        border: 1px solid $secondary;
+        background-color: $secondary;
+        color: $additional;
     }
 }

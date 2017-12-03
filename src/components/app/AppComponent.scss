@@ -16,6 +16,16 @@ h3 {
     color: $main;
     border-bottom: 1px solid $main;
 }
+
+input {
+    border: 1px solid $secondary;
+    padding: 10px 10px;
+    color: $secondary;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: $mobile-xs;
+}
+
 @media screen and (min-width: $mobile-max) {
     #app {
         padding: 0 35px;

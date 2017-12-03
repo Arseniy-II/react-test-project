@@ -2,7 +2,6 @@ const
     path = require('path'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    CleanWebpackPlugin = require('clean-webpack-plugin'),
     UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     autoprefixer = require('autoprefixer'),
@@ -158,9 +157,6 @@ const config = {
      * HtmlWebpackPlugin: copy index.html as a template and inject scripts
      * https://github.com/jaketrent/html-webpack-template
      *
-     * CleanWebpackPlugin: clear 'public' folder
-     * https://github.com/johnagan/clean-webpack-plugin
-     *
      * webpack.DefinePlugin: define global variables
      * https://webpack.github.io/docs/list-of-plugins.html#defineplugin
      *
@@ -175,11 +171,6 @@ const config = {
         new HtmlWebpackPlugin({
             inject: true,
             template: path.resolve(srcFolder, 'index.html')
-        }),
-
-        new CleanWebpackPlugin(publicFolder, {
-            root: __dirname,
-            verbose: true
         }),
 
         new webpack.DefinePlugin({
