@@ -1,13 +1,13 @@
 export default {
     /**
-     * Select Locale
+     * Select user list
      *
      * @param {Object} state
      * @return {Object}
      */
-    selectLocale({userList: state}) {
+    selectUserList({userList: state}) {
         return {
-            userList: state.list
+            userList: state.allIds.map(id => state.byId[id])
         };
     }
 };

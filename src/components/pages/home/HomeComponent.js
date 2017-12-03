@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
-import {Routes} from 'constants.js';
+import {Routes, APPEARANCE} from 'constants.js';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
 
 export default function HomeComponent(props) {
@@ -26,10 +26,10 @@ export default function HomeComponent(props) {
             </div>
             <div>
                 <ButtonsMenuComponent>
-                    <a onClick={() => {onRouteChange(Routes.LIST, {appearance: 'list'});}}>
+                    <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.LIST});}}>
                         <FormattedMessage id="list.list"/>
                     </a>
-                    <a onClick={() => {onRouteChange(Routes.LIST, {appearance: 'view'});}}>
+                    <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.VIEW});}}>
                         <FormattedMessage id="list.view"/>
                     </a>
                 </ButtonsMenuComponent>

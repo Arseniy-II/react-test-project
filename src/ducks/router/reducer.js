@@ -1,5 +1,6 @@
 import {LOCATION_CHANGE} from 'react-router-redux';
 import {parseQueryString} from 'utils';
+import {DEFAULT_QUERY} from 'constants.js';
 
 const initialState = {
     locationBeforeTransitions: null
@@ -11,7 +12,10 @@ export default (state = initialState, action) => {
         return {
             locationBeforeTransitions: {
                 ...action.payload,
-                query: parseQueryString(action.payload.search)
+                query: {
+                    ...DEFAULT_QUERY,
+                    ...parseQueryString(action.payload.search)
+                }
             }
         };
     }

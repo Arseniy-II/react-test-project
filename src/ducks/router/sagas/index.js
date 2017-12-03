@@ -2,7 +2,7 @@ import userListSaga from './user-list-saga';
 import types from '../types';
 import {push, LOCATION_CHANGE} from 'react-router-redux';
 import {put, takeLatest, call} from 'redux-saga/effects';
-import {Routes} from 'constants.js';
+import {Routes, DEFAULT_QUERY} from 'constants.js';
 
 const SAGA_FOR_ROUTE = {
     [Routes.LIST]: userListSaga
@@ -29,8 +29,13 @@ function* navigationSaga(action) {
  */
 function* changeRouteSaga({route, params}) {
     let fullRoute = route;
-    for(const key in params) {
-        fullRoute = fullRoute + `?${key}=${params[key]}`;
+    const extendedParams = {
+        ...DEFAULT_QUERY,
+        ...params
+    };
+
+    for(const key in extendedParams) {
+        fullRoute = fullRoute + `?${key}=${extendedParams[key]}`;
     }
     yield put(push(fullRoute));
 }

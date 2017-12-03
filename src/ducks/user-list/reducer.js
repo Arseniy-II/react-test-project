@@ -3,7 +3,19 @@ import types from './types';
 export const initialAppState = {
     isFetching: true,
     error: null,
-    list: []
+    list: [],
+    allIds: [],
+    byId: {}
+};
+
+const parseArray = (userList) => {
+    const byId = {};
+    const allIds = [];
+    userList.forEach(user => {
+        byId[user.id] = user;
+        allIds.push(user.id);
+    });
+    return {byId, allIds};
 };
 
 export default function (state = initialAppState, action) {
@@ -14,11 +26,10 @@ export default function (state = initialAppState, action) {
                 isFetching: true
             };
         case types.FETCH_USER_LIST_SUCCESS:
+            // TODO filter correspond to action.query
             return {
                 ...state,
-                list: {
-                    ...action.list
-                },
+                ...parseArray(action.list),
                 isFetching: false
             };
         case types.FETCH_USER_LIST_ERROR:

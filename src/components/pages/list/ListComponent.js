@@ -1,8 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {Routes, SORTING, DIRECTION, APPEARANCE} from 'constants.js';
 import {FormattedMessage} from 'react-intl';
+import UserViewComponent from './user-view/UserViewComponent';
+import UserListComponent from './user-list/UserListComponent';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
 
-export default function ListComponent() {
+export default function ListComponent(props) {
+    const {onRouteChange, onTextChange, query, userList} = props;
+    const users = userList.map(user => (query.appearance === APPEARANCE.LIST ?
+            <UserListComponent key={user.id} user={user}/> :
+            <UserViewComponent key={user.id} user={user}/>
+    ));
     return (
         <div>
             <div className="list-menu">
@@ -14,31 +23,31 @@ export default function ListComponent() {
                     </div>
                     <div className="list-sorting__params">
                         <ButtonsMenuComponent>
-                            <a>
+                            <a onClick={() => {onRouteChange(Routes.LIST, {sorting: SORTING.ID});}}>
                                 <FormattedMessage
                                     id='list.id'
                                 />
                             </a>
-                            <a>
+                            <a onClick={() => {onRouteChange(Routes.LIST, {sorting: SORTING.NAME});}}>
                                 <FormattedMessage
                                     id='list.name'
                                 />
                             </a>
-                            <a>
+                            <a onClick={() => {onRouteChange(Routes.LIST, {sorting: SORTING.AGE});}}>
                                 <FormattedMessage
                                     id='list.age'
                                 />
                             </a>
                         </ButtonsMenuComponent>
                         <ButtonsMenuComponent>
-                            <a>
-                                <FormattedMessage
-                                    id='list.descending'
-                                />
-                            </a>
-                            <a>
+                            <a onClick={() => {onRouteChange(Routes.LIST, {directions: DIRECTION.ASCENDING});}}>
                                 <FormattedMessage
                                     id='list.ascending'
+                                />
+                            </a>
+                            <a onClick={() => {onRouteChange(Routes.LIST, {directions: DIRECTION.DESCENDING});}}>
+                                <FormattedMessage
+                                    id='list.descending'
                                 />
                             </a>
                         </ButtonsMenuComponent>
@@ -52,12 +61,12 @@ export default function ListComponent() {
                     </div>
                     <div className="list-sorting__params">
                         <ButtonsMenuComponent>
-                            <a>
+                            <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.LIST});}}>
                                 <FormattedMessage
                                     id='list.list'
                                 />
                             </a>
-                            <a>
+                            <a onClick={() => {onRouteChange(Routes.LIST, {appearance: APPEARANCE.VIEW});}}>
                                 <FormattedMessage
                                     id='list.preview'
                                 />
@@ -70,12 +79,17 @@ export default function ListComponent() {
                 <FormattedMessage
                     id='list.search'
                 />
-                <input type="text"/>
+                <input onChange={onTextChange} type="text" value={query.textFilter}/>
             </div>
             <div className="user-list">
-                User 1
-                User 2
-                User 3
+                {users}
             </div>
         </div>);
 }
+
+ListComponent.propTypes = {
+    onTextChange: PropTypes.func.isRequired,
+    onRouteChange: PropTypes.func.isRequired,
+    query: PropTypes.object.isRequired,
+    userList: PropTypes.arrayOf(PropTypes.object).isRequired
+};
