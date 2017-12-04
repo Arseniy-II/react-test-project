@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FormattedPlural, FormattedMessage} from 'react-intl';
-import {StarIcon} from 'components/icons';
+import {StarIcon, PlayIcon} from 'components/icons';
 
 export default function UserViewComponent(props) {
-    const {user, onAddToFavourite, onSaveOffsetTop, isVisible} = props;
+    const {user, onAddToFavourite, onSaveOffsetTop, isVisible, saveVideoRef, onPlayClick} = props;
     return (
         <div ref={onSaveOffsetTop}
-            className={`user-view
+             className={`user-view
             ${user.video ? 'user-view_full' : ''}
             ${isVisible ? 'user-view_visible' : ''}
             `}>
@@ -54,9 +54,14 @@ export default function UserViewComponent(props) {
             </div>
             {user.video &&
             <div className="user-view-video">
-                <video controls="controls">
-                    <source src={`/videos/${user.video}.mp4`}/>
-                </video>
+                <div className="user-view-box">
+                    <video ref={saveVideoRef}>
+                        <source src={`/videos/${user.video}.mp4`}/>
+                    </video>
+                    <button className="user-view-video-button" onClick={onPlayClick}>
+                        <PlayIcon/>
+                    </button>
+                </div>
             </div>
             }
         </div>
@@ -66,6 +71,8 @@ export default function UserViewComponent(props) {
 UserViewComponent.propTypes = {
     isVisible: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
+    onPlayClick: PropTypes.func.isRequired,
+    saveVideoRef: PropTypes.func.isRequired,
     onAddToFavourite: PropTypes.func.isRequired,
     onSaveOffsetTop: PropTypes.func.isRequired
 };

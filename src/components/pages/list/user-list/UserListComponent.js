@@ -10,6 +10,7 @@ export default function UserListComponent(props) {
              className={`user-list
             ${isVisible ? 'user-list_visible' : ''}
             `}>
+
             <div className="user-list-block user-list-main">
                 <div className="user-list-avatar"
                      style={{

@@ -13,8 +13,8 @@
         display: block;
         text-align: center;
         cursor: pointer;
+        transition: all $fast;
         &:hover {
-            transition: color $fast;
             color: saturate($additional, $enhanceValue);
 
         }

@@ -49,5 +49,19 @@
             width: 1%;
             order: 3;
         }
+
+        // styles for animation
+        transition: all 0.5s ease;
+        opacity: 0;
+        &:nth-child(odd) {
+            transform: translateX(100%);
+        }
+        &:nth-child(even) {
+            transform: translateX(-100%);
+        }
+        &.user-list_visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 }

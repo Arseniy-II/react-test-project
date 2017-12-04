@@ -18,7 +18,10 @@ class ListContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {visibleHeight: window.innerHeight + window.scrollY};
+        this.state = {
+            visibleHeight: window.innerHeight + window.scrollY,
+            autoPlay: true
+        };
     }
 
     componentDidMount() {
@@ -31,7 +34,7 @@ class ListContainer extends Component {
 
     _setHeight = debounce(() => {
         this.setState({visibleHeight: window.innerHeight + window.scrollY});
-    }, 300);
+    }, 200);
 
     _onRouteChange = (route, params) => {
         this._setHeight();
@@ -46,11 +49,17 @@ class ListContainer extends Component {
         });
     };
 
+    _onPlayClick = () => {
+        this.setState({autoPlay: false});
+    };
+
     render() {
         const {query, userList, search} = this.props;
-        const {_changeTextFilter, _onRouteChange} = this;
-        const {visibleHeight} = this.state;
+        const {_changeTextFilter, _onRouteChange, _onPlayClick} = this;
+        const {visibleHeight, autoPlay} = this.state;
         return <ListComponent
+            onPlayClick={_onPlayClick}
+            autoPlay={autoPlay}
             search={search}
             visibleHeight={visibleHeight}
             onTextChange={_changeTextFilter}

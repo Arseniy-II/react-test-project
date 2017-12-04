@@ -6,10 +6,13 @@ import {UserContainer} from 'containers';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
 
 export default function ListComponent(props) {
-    const {onRouteChange, onTextChange, query, userList, visibleHeight, search} = props;
+    const {onRouteChange, onTextChange, query, userList, visibleHeight, onPlayClick, autoPlay} = props;
     const users = userList.map((user, index) => (
         <UserContainer
-            key={`${user.id}-${search}-${index}`}
+            onPlayClick={onPlayClick}
+            autoPlay={autoPlay}
+            index={index}
+            key={`${user.id}-${index}`}
             user={user}
             visibleHeight={visibleHeight}
             appearance={query.appearance}
@@ -121,6 +124,8 @@ export default function ListComponent(props) {
 }
 
 ListComponent.propTypes = {
+    onPlayClick: PropTypes.func.isRequired,
+    autoPlay: PropTypes.bool.isRequired,
     search: PropTypes.string.isRequired,
     onTextChange: PropTypes.func.isRequired,
     visibleHeight: PropTypes.number.isRequired,
