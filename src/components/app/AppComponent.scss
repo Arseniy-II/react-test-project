@@ -16,20 +16,20 @@ h1 {
     text-align: center;
 }
 h3 {
+    border-bottom: $thin solid $main;
     color: $main;
-    border-bottom: 1px solid $main;
 }
 
 input {
-    border: 1px solid $secondary;
-    padding: 10px 10px;
-    color: $secondary;
-    width: 100%;
+    border: $thin solid $secondary;
     box-sizing: border-box;
+    color: $secondary;
     max-width: $mobile-xs;
+    padding: 10px 10px;
+    width: 100%;
 }
 button {
-    background-color: white;
+    background-color: $background;
 }
 
 @media screen and (min-width: $mobile-max) {

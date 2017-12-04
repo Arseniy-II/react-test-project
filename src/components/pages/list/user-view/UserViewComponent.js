@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import {FormattedPlural, FormattedMessage} from 'react-intl';
 import {StarIcon, PlayIcon} from 'components/icons';
 
@@ -36,10 +36,10 @@ export default function UserViewComponent(props) {
                 <div className="info-block">
                     {user.age}&nbsp;
                     <FormattedPlural
-                        value={user.age}
-                        one={<FormattedMessage id='plurals.age.one'/>}
                         few={<FormattedMessage id='plurals.age.few'/>}
+                        one={<FormattedMessage id='plurals.age.one'/>}
                         other={<FormattedMessage id='plurals.age.many'/>}
+                        value={user.age}
                     />
                 </div>
 
@@ -70,9 +70,9 @@ export default function UserViewComponent(props) {
 
 UserViewComponent.propTypes = {
     isVisible: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
-    onPlayClick: PropTypes.func.isRequired,
-    saveVideoRef: PropTypes.func.isRequired,
     onAddToFavourite: PropTypes.func.isRequired,
-    onSaveOffsetTop: PropTypes.func.isRequired
+    onPlayClick: PropTypes.func.isRequired,
+    onSaveOffsetTop: PropTypes.func.isRequired,
+    saveVideoRef: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired
 };

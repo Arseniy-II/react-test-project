@@ -1,19 +1,19 @@
+import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import UserListComponent from 'components/pages/list/user-list/UserListComponent';
 import UserViewComponent from 'components/pages/list/user-view/UserViewComponent';
-import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
-import {userListActions} from 'ducks/user-list';
 import {APPEARANCE} from 'constants.js';
+import {connect} from 'react-redux';
+import {userListActions} from 'ducks/user-list';
 
 class UserContainer extends Component {
     static propTypes = {
-        user: PropTypes.object.isRequired,
-        appearance: PropTypes.string.isRequired,
         addToFavourite: PropTypes.func.isRequired,
+        appearance: PropTypes.string.isRequired,
+        autoPlay: PropTypes.bool.isRequired,
         index: PropTypes.number.isRequired,
         onPlayClick: PropTypes.func.isRequired,
-        autoPlay: PropTypes.bool.isRequired,
+        user: PropTypes.object.isRequired,
         visibleHeight: PropTypes.number.isRequired
     };
     static DEFAULT_TIMEOUT = 400;
@@ -25,20 +25,14 @@ class UserContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            height: null,
             offsetTop: null,
             timeOut: false,
-            offsetBottom: null
         };
     }
 
     componentDidMount() {
-        const timeout = UserContainer.MAX_TIMEOUT < this.props.index * UserContainer.DEFAULT_TIMEOUT ?
-            UserContainer.MAX_TIMEOUT : this.props.index * UserContainer.DEFAULT_TIMEOUT;
-        this._timer = setTimeout(() => {
-            this.setState({
-                timeOut: true
-            });
-        }, timeout);
+        this._launchTimeOutForAnimation();
     }
 
     componentWillUnmount() {
@@ -46,6 +40,15 @@ class UserContainer extends Component {
     }
 
     componentWillReceiveProps() {
+        this._handelVideoAutoPlay();
+    }
+
+    /**
+     * Play video if it on the screen center (it is possible for only one video to be at center)
+     *
+     * @private
+     */
+    _handelVideoAutoPlay = () => {
         const {user, appearance, autoPlay} = this.props;
         const {offsetTop, height, timeOut} = this.state;
         const {_video} = this;
@@ -61,8 +64,29 @@ class UserContainer extends Component {
         } else {
             _video.pause();
         }
-    }
+    };
 
+    /**
+     * Set timeout to delay animation for later elements
+     *
+     * @private
+     */
+    _launchTimeOutForAnimation = () => {
+        const timeout = UserContainer.MAX_TIMEOUT < this.props.index * UserContainer.DEFAULT_TIMEOUT ?
+            UserContainer.MAX_TIMEOUT : this.props.index * UserContainer.DEFAULT_TIMEOUT;
+        this._timer = setTimeout(() => {
+            this.setState({
+                timeOut: true
+            });
+        }, timeout);
+    };
+
+    /**
+     * Check if window scrolled up to the element
+     *
+     * @param {Object} element
+     * @private
+     */
     _checkIsVisible = (element) => {
         if (element) {
             this.setState({
@@ -72,10 +96,21 @@ class UserContainer extends Component {
         }
     };
 
+    /**
+     * Save video ref so it is possible to play/pause from container
+     *
+     * @param {Object} videoElement
+     * @private
+     */
     _saveVideoRef = (videoElement) => {
         this._video = videoElement;
     };
 
+    /**
+     * Synthetic play/pause handler
+     *
+     * @private
+     */
     _onPlayClick = () => {
         const video = this._video;
         const isVideoPlaying = video.currentTime > 0 && !video.paused && !video.ended;
@@ -86,6 +121,11 @@ class UserContainer extends Component {
         }
     };
 
+    /**
+     * User play click (prevent auto play)
+     *
+     * @private
+     */
     _onManualPlayClick = () => {
         this.props.onPlayClick();
         this._onPlayClick();
@@ -99,21 +139,21 @@ class UserContainer extends Component {
         return (
             appearance === APPEARANCE.LIST ?
                 <UserListComponent
-                    user={user}
                     index={index}
                     isVisible={isVisible}
-                    onSaveOffsetTop={_checkIsVisible}
                     onAddToFavourite={addToFavourite}
+                    onSaveOffsetTop={_checkIsVisible}
+                    user={user}
                 /> :
                 <UserViewComponent
-                    saveVideoRef={_saveVideoRef}
-                    onPlayClick={_onManualPlayClick}
                     autoPlay={autoPlay}
-                    user={user}
                     index={index}
                     isVisible={isVisible}
-                    onSaveOffsetTop={_checkIsVisible}
                     onAddToFavourite={addToFavourite}
+                    onPlayClick={_onManualPlayClick}
+                    onSaveOffsetTop={_checkIsVisible}
+                    saveVideoRef={_saveVideoRef}
+                    user={user}
                 />
         );
     }

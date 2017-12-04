@@ -1,7 +1,7 @@
-import StarIcon from './Star';
 import PlayIcon from './Play';
+import StarIcon from './Star';
 
 export {
-    StarIcon,
-    PlayIcon
+    PlayIcon,
+    StarIcon
 };

@@ -3,25 +3,20 @@
     justify-content: space-evenly;
     >a,
     >button {
-        border: 1px solid $secondary;
-        color: $secondary;
-        flex: 0 0 auto;
-        padding: 10px 10px;
+        @include button;
         box-sizing: border-box;
+        flex: 0 0 auto;
         height: 100%;
-        width: 120px;
-        display: block;
-        text-align: center;
-        cursor: pointer;
         transition: all $fast;
+        width: 120px;
         &:hover {
             color: saturate($additional, $enhanceValue);
 
         }
     }
     .active {
-        border: 1px solid $secondary;
         background-color: $secondary;
+        border: $thin solid $secondary;
         color: $additional;
     }
 }

@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {FormattedMessage} from 'react-intl';
-import {Routes, APPEARANCE} from 'constants.js';
-import {LocaleToggleContainer} from 'containers';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {FormattedMessage} from 'react-intl';
+import {LocaleToggleContainer} from 'containers';
+import {Routes, APPEARANCE} from 'constants.js';
 
 export default function HomeComponent(props) {
     const {onRouteChange} = props;

@@ -1,6 +1,7 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
 import {Routes} from 'constants.js';
+import {Switch, Route} from 'react-router-dom';
+
 import {
     ListContainer,
     HomeContainer

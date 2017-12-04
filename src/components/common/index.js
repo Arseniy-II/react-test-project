@@ -1,7 +1,7 @@
-import SpinnerComponent from './spinner/SpinnerComponent';
 import LocaleToggleComponent from './locale-toggle/LocalleToggleComponent';
+import SpinnerComponent from './spinner/SpinnerComponent';
 
 export {
-    SpinnerComponent,
-    LocaleToggleComponent
+    LocaleToggleComponent,
+    SpinnerComponent
 };

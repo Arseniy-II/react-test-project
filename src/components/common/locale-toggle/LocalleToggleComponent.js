@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import {LOCALES} from 'constants.js';
 
 export default function LocaleToggleComponent(props) {

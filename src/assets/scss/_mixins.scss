@@ -1,8 +1,17 @@
 @mixin page {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     height: 100vh;
+    justify-content: flex-start;
+}
+
+@mixin button {
+    border: $thin solid $secondary;
+    color: $secondary;
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    text-align: center;
 }
 
 @mixin star {
@@ -13,8 +22,8 @@
         cursor: pointer;
         polygon {
             fill: none;
-            stroke: $main;
             stroke-width: 30;
+            stroke: $main;
         }
     }
     &_active {

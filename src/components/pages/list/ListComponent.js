@@ -1,21 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Routes, SORTING, DIRECTION, APPEARANCE} from 'constants.js';
-import {FormattedMessage} from 'react-intl';
-import {UserContainer, LocaleToggleContainer} from 'containers';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {FormattedMessage} from 'react-intl';
+import {Routes, SORTING, DIRECTION, APPEARANCE} from 'constants.js';
+import {UserContainer, LocaleToggleContainer} from 'containers';
 
 export default function ListComponent(props) {
     const {onRouteChange, onTextChange, query, userList, visibleHeight, onPlayClick, autoPlay} = props;
     const users = userList.map((user, index) => (
         <UserContainer
-            onPlayClick={onPlayClick}
+            appearance={query.appearance}
             autoPlay={autoPlay}
             index={index}
             key={`${user.id}-${index}`}
+            onPlayClick={onPlayClick}
             user={user}
             visibleHeight={visibleHeight}
-            appearance={query.appearance}
         />
     ));
     return (
@@ -125,12 +125,12 @@ export default function ListComponent(props) {
 }
 
 ListComponent.propTypes = {
-    onPlayClick: PropTypes.func.isRequired,
     autoPlay: PropTypes.bool.isRequired,
-    search: PropTypes.string.isRequired,
-    onTextChange: PropTypes.func.isRequired,
-    visibleHeight: PropTypes.number.isRequired,
+    onPlayClick: PropTypes.func.isRequired,
     onRouteChange: PropTypes.func.isRequired,
+    onTextChange: PropTypes.func.isRequired,
     query: PropTypes.object.isRequired,
-    userList: PropTypes.arrayOf(PropTypes.object).isRequired
+    search: PropTypes.string.isRequired,
+    userList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    visibleHeight: PropTypes.number.isRequired
 };

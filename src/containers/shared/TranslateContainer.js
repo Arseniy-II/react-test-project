@@ -7,12 +7,12 @@ import React, {Component} from 'react';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import {appSelectors} from 'ducks/app';
 import {connect} from 'react-redux';
-import {IntlProvider, addLocaleData} from 'react-intl';
 import {flattenObject} from 'utils';
+import {IntlProvider, addLocaleData} from 'react-intl';
 import {SpinnerComponent} from 'components/common';
 
-addLocaleData(ruLocaleData);
 addLocaleData(enLocaleData);
+addLocaleData(ruLocaleData);
 
 class TranslateProvider extends Component {
     render() {
@@ -22,8 +22,8 @@ class TranslateProvider extends Component {
         }
         return (
             <IntlProvider
-                locale={locale}
                 key={locale} // force component to update on locale change
+                locale={locale}
                 messages={flattenObject(i18n)}
             >
                 <div>
@@ -37,8 +37,8 @@ class TranslateProvider extends Component {
 TranslateProvider.propTypes = {
     children: PropTypes.element.isRequired,
     i18n: PropTypes.object,
-    locale: PropTypes.string.isRequired,
-    isFetching: PropTypes.bool.isRequired
+    isFetching: PropTypes.bool.isRequired,
+    locale: PropTypes.string.isRequired
 };
 
 export default connect(

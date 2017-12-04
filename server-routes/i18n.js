@@ -3,7 +3,6 @@ const
     asyncResponse = require('./async-middleware').asyncResponse,
     asyncFileRead = require('./async-middleware').asyncFileRead;
 
-// TODO translate i18n/en.json at the end to avoid multiple translations
 router.get('/', asyncResponse(
     async (req, res) => {
         const {locale = 'en'} = req.query;

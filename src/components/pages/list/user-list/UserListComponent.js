@@ -23,10 +23,10 @@ export default function UserListComponent(props) {
             <div className="user-list-block">
                 {user.age}&nbsp;
                 <FormattedPlural
-                    value={user.age}
-                    one={<FormattedMessage id='plurals.age.one'/>}
                     few={<FormattedMessage id='plurals.age.few'/>}
+                    one={<FormattedMessage id='plurals.age.one'/>}
                     other={<FormattedMessage id='plurals.age.many'
+                    value={user.age}
                     />}
                 />
             </div>
@@ -46,7 +46,7 @@ export default function UserListComponent(props) {
 
 UserListComponent.propTypes = {
     isVisible: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
     onAddToFavourite: PropTypes.func.isRequired,
-    onSaveOffsetTop: PropTypes.func.isRequired
+    onSaveOffsetTop: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired
 };

@@ -6,8 +6,8 @@
 // core
 @import '/assets/scss/variables';
 @import '/assets/scss/mixins';
-@import '/assets/scss/extends';
 
+// project styles
 @import 'components/app/AppComponent';
 @import 'components/pages/home/HomeComponent';
 @import 'components/pages/list/ListComponent';

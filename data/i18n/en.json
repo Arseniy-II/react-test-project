@@ -20,7 +20,7 @@
         "ascending": "Ascending"
     },
     "home": {
-        "title": "Test Project",
+        "title": "React-Redux Project",
         "content-title": "Project description",
         "content": "Small project based on React-Redux",
         "links-title": "Important Links",
