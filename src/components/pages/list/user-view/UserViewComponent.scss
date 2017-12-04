@@ -56,6 +56,47 @@
         }
     }
 }
+// styles for animation
+.user-view {
+    &-info{
+        transition: opacity 0.5s linear;
+        opacity: 0;
+        $user-view-info-blocks: 5;
+        @for $info-block from 0 to $user-view-info-blocks {
+            div:nth-child(#{$info-block}) {
+                transition: transform 1s cubic-bezier(.3,-1,.6,2);
+                transform: translateY(-$info-block*20px);
+            }
+        }
+    }
+    .info {
+        &-star {
+            .icon-container{
+                transition: transform 2s cubic-bezier(1,-0.5,0,3) 1s;
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+.user-view {
+    &-info{
+            opacity: 1;
+        $user-view-info-blocks: 5;
+        @for $info-block from 0 to $user-view-info-blocks {
+            div:nth-child(#{$info-block}) {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .info {
+        &-star {
+            .icon-container{
+                transform: rotate(0);
+            }
+        }
+    }
+}
 
 @media screen and (min-width: $mobile-max) {
     .user-view{
