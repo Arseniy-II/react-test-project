@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Routes, SORTING, DIRECTION, APPEARANCE} from 'constants.js';
 import {FormattedMessage} from 'react-intl';
-import {UserContainer} from 'containers';
+import {UserContainer, LocaleToggleContainer} from 'containers';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
 
 export default function ListComponent(props) {
@@ -20,6 +20,7 @@ export default function ListComponent(props) {
     ));
     return (
         <div className="list">
+            <LocaleToggleContainer/>
             <div className="list-block">
                 <h3 className="list-title">
                     <FormattedMessage

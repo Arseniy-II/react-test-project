@@ -46,7 +46,7 @@ class UserContainer extends Component {
     }
 
     componentWillReceiveProps() {
-        const {user, visibleHeight, appearance, autoPlay} = this.props;
+        const {user, appearance, autoPlay} = this.props;
         const {offsetTop, height, timeOut} = this.state;
         const {_video} = this;
         const Y_ELEMENT = offsetTop + (height / 2);
@@ -58,10 +58,8 @@ class UserContainer extends Component {
         }
         if (Y_TOP <= Y_ELEMENT && Y_ELEMENT <= Y_BOTTOM) {
             _video.play();
-            console.log('play');
         } else {
             _video.pause();
-            console.log('pause');
         }
     }
 
@@ -75,7 +73,7 @@ class UserContainer extends Component {
     };
 
     _saveVideoRef = (videoElement) => {
-        this._video = videoElement
+        this._video = videoElement;
     };
 
     _onPlayClick = () => {
@@ -96,7 +94,7 @@ class UserContainer extends Component {
     render() {
         const {user, addToFavourite, appearance, visibleHeight, index, autoPlay} = this.props;
         const {offsetTop, timeOut} = this.state;
-        const {_checkIsVisible, _saveVideoRef, _onPlayClick, _onManualPlayClick} = this;
+        const {_checkIsVisible, _saveVideoRef, _onManualPlayClick} = this;
         const isVisible = !!offsetTop && timeOut && visibleHeight >= offsetTop;
         return (
             appearance === APPEARANCE.LIST ?
@@ -122,9 +120,8 @@ class UserContainer extends Component {
 }
 
 export default connect(
-    null
-    , {
+    null,
+    {
         addToFavourite: userListActions.addToFavourite
     }
-)
-(UserContainer);
+)(UserContainer);

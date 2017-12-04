@@ -6,23 +6,28 @@
             "many": "years"
         }
     },
-    "shared": {
-        "list": "Таблица",
-        "preview": "Превью",
-        "view": "Вид",
-        "sorting": "Сортировка",
+    "list": {
+        "user-list-title": "Users",
+        "search": "Search",
+        "list": "List",
+        "preview": "Preview",
+        "view": "View",
+        "sorting": "Sorting",
         "id": "ID",
-        "name": "Имя",
-        "age": "Возраст",
-        "descending": "По убыванию",
-        "ascending": "По возрастанию"
+        "name": "Name",
+        "age": "Age",
+        "descending": "Descending",
+        "ascending": "Ascending"
     },
     "home": {
         "title": "Test Project",
-        "content": "",
+        "content-title": "Project description",
+        "content": "Small project based on React-Redux",
+        "links-title": "Important Links",
+        "buttons-title": "Go to Users list",
         "links": {
             "git": {
-                "title": "Гит Репозиторй",
+                "title": "Git",
                 "content": "https://github.com/Arseniy-II/react-test-project.git"
             },
             "email": {

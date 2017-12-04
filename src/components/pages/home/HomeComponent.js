@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
 import {Routes, APPEARANCE} from 'constants.js';
+import {LocaleToggleContainer} from 'containers';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
 
 export default function HomeComponent(props) {
     const {onRouteChange} = props;
     return (
         <div className="home">
+            <LocaleToggleContainer/>
             <h1 className="home-title">
                 <FormattedMessage id='home.title'/>
             </h1>
