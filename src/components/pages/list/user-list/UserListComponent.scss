@@ -1,23 +1,23 @@
 .user-list {
+    border-bottom: $thin solid $additional;
     box-sizing: border-box;
-    height: 60px;
-    padding: 5px;
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     flex-wrap: wrap;
-    border-bottom: 1px solid $additional;
+    height: 60px;
+    justify-content: space-between;
+    padding: 5px;
+    width: 100%;
     &-name{
         flex: 0 0 auto;
         margin-left: 10px;
     }
     &-avatar {
-        flex: 0 0 auto;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
         background-position: center;
         background-size: cover;
+        border-radius: 50%;
+        flex: 0 0 auto;
+        height: 25px;
+        width: 25px;
     }
     &-block {
         align-items: center;
@@ -48,6 +48,20 @@
         &-star {
             width: 1%;
             order: 3;
+        }
+
+        // styles for animation
+        transition: all $fast ease;
+        opacity: 0;
+        &:nth-child(odd) {
+            transform: translateX(100%);
+        }
+        &:nth-child(even) {
+            transform: translateX(-100%);
+        }
+        &.user-list_visible {
+            transform: translateX(0);
+            opacity: 1;
         }
     }
 }

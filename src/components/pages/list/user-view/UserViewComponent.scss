@@ -1,11 +1,11 @@
 .user-view {
+    border-bottom: $thin solid $additional;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
     min-height: 200px;
     padding: 5px;
-    display: flex;
-    flex: 0 0 100%;
-    flex-direction: column;
-    border-bottom: 1px solid $additional;
     &_full {
         min-height: 400px;
     }
@@ -14,11 +14,36 @@
         flex: 1 1 100%;
     }
     &-video {
+        max-height: 100%;
+        position: relative;
+    }
+    &-box {
+        display: inline-block;
+        height: 100%;
+        margin-top: 10px;
+        position: absolute;
         video {
-            padding-top: 10px;
-            max-width: $mobile-xs;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    &-video-button {
+        background-color: $white;
+        border-radius: 0;
+        border: $thin solid $secondary;
+        bottom: 0;
+        height: 35px;
+        left: 0;
+        outline: none;
+        position: absolute;
+        width: 35px;
+        svg {
+            fill: $secondary;
+            height: 100%;
+            stroke: $secondary;
             width: 100%;
         }
+
     }
     &-info {
         display: flex;
@@ -27,27 +52,27 @@
     }
     .info {
         &-user {
-            flex: 1 1 auto;
             align-items: center;
             display: flex;
+            flex: 1 1 auto;
         }
         &-name {
             flex: 0 0 auto;
             margin-left: 10px;
         }
         &-avatar {
-            flex: 0 0 auto;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
             background-position: center;
             background-size: cover;
+            border-radius: 50%;
+            flex: 0 0 auto;
+            height: 25px;
+            width: 25px;
         }
         &-star {
-            flex: 1 1 auto;
-            display: flex;
-            justify-content: flex-end;
             @include star;
+            display: flex;
+            flex: 1 1 auto;
+            justify-content: flex-end;
         }
         &-block {
             align-items: center;
@@ -58,8 +83,8 @@
 }
 
 @media screen and (min-width: $mobile-max) {
-    .user-view{
-        border-right: 1px solid $additional;
+    .user-view {
+        border-right: $thin solid $additional;
         flex: 0 0 50%;
         &_full {
             flex-direction: row;
@@ -69,16 +94,63 @@
         &-video,
         &-info {
             display: flex;
-            padding: 10px;
             flex: 1 1 50%;
-            video {
-                padding: 0;
-                height: 100%;
-                flex: 0 0 auto;
-            }
+        }
+        &-info {
+            padding: 10px;
         }
         &-video {
             justify-content: center;
+        }
+        // styles for animation
+        &-video {
+            opacity: 0;
+            transition: opacity $leisurely linear;
+        }
+        &-box {
+            margin-top: 0;
+        }
+        &-info {
+            opacity: 0;
+            transition: opacity $fast linear;
+            $user-view-info-blocks: 5;
+            @for $info-block from 0 to $user-view-info-blocks {
+                div:nth-child(#{$info-block}) {
+                    transition: transform $leisurely cubic-bezier(.3, -1, .6, 2);
+                    transform: translateY(-$info-block*20px);
+                }
+            }
+        }
+        .info {
+            &-star {
+                .icon-container {
+                    transition: transform $slow cubic-bezier(1, -0.5, 0, 3) 1s;
+                    transform: rotate(360deg);
+                }
+            }
+        }
+        &_visible {
+            .user-view-video {
+                opacity: 1;
+            }
+            .user-view-info {
+                .info-block {
+                    transform: translateY(0);
+                    div {
+                        transform: translateY(0);
+                    }
+                }
+                opacity: 1;
+            }
+
+            .info {
+                &-star {
+                    .icon-container {
+                        transform: rotate(0);
+                    }
+                }
+            }
+
         }
     }
 }

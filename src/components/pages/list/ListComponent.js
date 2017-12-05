@@ -1,23 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Routes, SORTING, DIRECTION, APPEARANCE} from 'constants.js';
-import {FormattedMessage} from 'react-intl';
-import {UserContainer} from 'containers';
 import ButtonsMenuComponent from 'components/common/buttons-menu/ButtonsMenuComponent';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {FormattedMessage} from 'react-intl';
+import {Routes, SORTING, DIRECTION, APPEARANCE} from 'constants.js';
+import {UserContainer, LocaleToggleContainer} from 'containers';
 
 export default function ListComponent(props) {
-    const {onRouteChange, onTextChange, query, userList, onSaveOffsetTop, lastVisibleIndex} = props;
+    const {onRouteChange, onTextChange, query, userList, visibleHeight, onPlayClick, autoPlay} = props;
     const users = userList.map((user, index) => (
         <UserContainer
-            key={`${user.id}-${index}`}
-            user={user}
-            onSaveOffsetTop={onSaveOffsetTop}
-            isVisible={index < lastVisibleIndex}
             appearance={query.appearance}
+            autoPlay={autoPlay}
+            index={index}
+            key={`${user.id}-${index}`}
+            onPlayClick={onPlayClick}
+            user={user}
+            visibleHeight={visibleHeight}
         />
     ));
     return (
         <div className="list">
+            <LocaleToggleContainer/>
             <div className="list-block">
                 <h3 className="list-title">
                     <FormattedMessage
@@ -122,10 +125,12 @@ export default function ListComponent(props) {
 }
 
 ListComponent.propTypes = {
-    onTextChange: PropTypes.func.isRequired,
-    onSaveOffsetTop: PropTypes.func.isRequired,
-    lastVisibleIndex: PropTypes.number.isRequired,
+    autoPlay: PropTypes.bool.isRequired,
+    onPlayClick: PropTypes.func.isRequired,
     onRouteChange: PropTypes.func.isRequired,
+    onTextChange: PropTypes.func.isRequired,
     query: PropTypes.object.isRequired,
-    userList: PropTypes.arrayOf(PropTypes.object).isRequired
+    search: PropTypes.string.isRequired,
+    userList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    visibleHeight: PropTypes.number.isRequired
 };

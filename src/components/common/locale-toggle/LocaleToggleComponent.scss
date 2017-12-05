@@ -1,0 +1,15 @@
+.locale {
+    &-container {
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 0;
+        top: 10%;
+    }
+    &-item {
+        @include button;
+        text-transform: uppercase;
+    }
+}
+
