@@ -1,10 +1,10 @@
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import {routerMiddleware} from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
 import createHistory from 'history/createBrowserHistory';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from './root-reducer';
 import rootSaga from './root-saga';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import {createStore, applyMiddleware} from 'redux';
+import {routerMiddleware} from 'react-router-redux';
 
 export const history = createHistory();
 

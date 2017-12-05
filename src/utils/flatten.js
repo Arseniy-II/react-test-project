@@ -1,3 +1,9 @@
+/**
+ * Return flatt object
+ *
+ * @param {Object} object
+ * @returns {Object}
+ */
 const flattenObject = (object) => {
     const toReturn = {};
 

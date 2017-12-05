@@ -1,11 +1,11 @@
-import flattenObject from './flatten';
-import request from './request';
-import parseQueryString from './parse-query-string';
 import filterUsers from './filter-users';
+import flattenObject from './flatten';
+import parseQueryString from './parse-query-string';
+import request from './request';
 
 export {
     filterUsers,
-    parseQueryString,
     flattenObject,
+    parseQueryString,
     request
 };

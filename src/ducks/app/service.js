@@ -1,6 +1,6 @@
-import {request} from 'utils';
 import {API_REQUESTS} from 'constants.js';
 import {mapErrorResponse} from 'ducks/shared/mappers';
+import {request} from 'utils';
 
 const appService = {
     fetchI18n(locale) {

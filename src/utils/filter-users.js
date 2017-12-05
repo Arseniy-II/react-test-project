@@ -1,5 +1,12 @@
 import {DIRECTION} from 'constants.js';
 
+/**
+ * Sort users depends on query
+ *
+ * @param {Array} userList
+ * @param {Object} query
+ * @returns {{byId: {}, allIds: Array}}
+ */
 export default (userList, query) => {
     const byId = {};
     const allIds = [];

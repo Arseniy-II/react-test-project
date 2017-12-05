@@ -34,10 +34,10 @@ export default {
      *
      * @return {Object}
      */
-    fetchUserListError(userList) {
+    fetchUserListError(error) {
         return {
             type: types.FETCH_USER_LIST_ERROR,
-            userList
+            error
         };
     },
 

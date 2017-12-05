@@ -25,9 +25,8 @@ export default function UserListComponent(props) {
                 <FormattedPlural
                     few={<FormattedMessage id='plurals.age.few'/>}
                     one={<FormattedMessage id='plurals.age.one'/>}
-                    other={<FormattedMessage id='plurals.age.many'
+                    other={<FormattedMessage id='plurals.age.many'/>}
                     value={user.age}
-                    />}
                 />
             </div>
             <div className="user-list-block">

@@ -1,3 +1,9 @@
+/**
+ * split query string and save params in object
+ *
+ * @param {string} queryString
+ * @returns {Object}
+ */
 export default (queryString) => {
     const params = {};
     let queries,

@@ -4,4 +4,4 @@ import {LocaleToggleComponent} from 'components/common';
 
 export default connect(null, {
     onLocaleChange: appActions.fetchI18nRequest
-})(LocaleToggleComponent)
+})(LocaleToggleComponent);

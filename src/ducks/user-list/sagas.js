@@ -1,6 +1,6 @@
 import actions from './actions';
-import {put, call} from 'redux-saga/effects';
 import service from './service';
+import {put, call} from 'redux-saga/effects';
 
 export default {
     fetchUserListSaga: function* ({query}) {

@@ -1,5 +1,5 @@
 /**
- * Handle errors and currently log them into console
+ * Handle errors and log them into console
  *
  * @param {Object} errorResponse
  * @returns {Promise.<Object>}

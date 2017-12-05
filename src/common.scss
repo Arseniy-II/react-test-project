@@ -9,10 +9,10 @@
 
 // project styles
 @import 'components/app/AppComponent';
+@import 'components/common/buttons-menu/ButtonsMenuContainer';
+@import 'components/common/locale-toggle/LocaleToggleComponent';
+@import 'components/common/spinner/SpinnerComponent';
 @import 'components/pages/home/HomeComponent';
 @import 'components/pages/list/ListComponent';
 @import 'components/pages/list/user-list/UserListComponent';
 @import 'components/pages/list/user-view/UserViewComponent';
-@import 'components/common/spinner/SpinnerComponent';
-@import 'components/common/locale-toggle/LocaleToggleComponent';
-@import 'components/common/buttons-menu/ButtonsMenuContainer';

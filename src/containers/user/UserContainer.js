@@ -27,7 +27,7 @@ class UserContainer extends Component {
         this.state = {
             height: null,
             offsetTop: null,
-            timeOut: false,
+            timeOut: false
         };
     }
 

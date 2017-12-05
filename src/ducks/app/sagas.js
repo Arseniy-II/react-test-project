@@ -1,15 +1,15 @@
-import types from './types';
 import actions from './actions';
-import {takeLatest, all, fork, put, call} from 'redux-saga/effects';
-import {LOCALES} from 'constants.js';
 import service from './service';
+import types from './types';
+import {LOCALES} from 'constants.js';
+import {takeLatest, all, fork, put, call} from 'redux-saga/effects';
 
 function* initSaga() {
     yield put(actions.fetchI18nRequest(LOCALES.DEFAULT));
 }
 
 /**
- * Fetch locale saga
+ * Fetch i18n for corresponding locale saga
  */
 function* fetchLocaleSaga({locale}) {
     try {

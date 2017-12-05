@@ -25,6 +25,3 @@ const renderApp = Component =>
 
 renderApp(AppContainer);
 if (module.hot) {module.hot.accept('containers', () => renderApp(AppContainer));}
-
-// TODO check docs especially for ducks
-// TODO check lodash. I never use it (remove from dependencies)

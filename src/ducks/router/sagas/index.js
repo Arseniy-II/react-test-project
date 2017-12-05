@@ -1,5 +1,5 @@
-import userListSaga from './user-list-saga';
 import types from '../types';
+import userListSaga from './user-list-saga';
 import {push, LOCATION_CHANGE} from 'react-router-redux';
 import {put, takeLatest, call} from 'redux-saga/effects';
 import {Routes, DEFAULT_QUERY} from 'constants.js';
@@ -41,6 +41,6 @@ function* changeRouteSaga({route, params}) {
 }
 
 export default function* routerRootSaga() {
-    yield takeLatest(types.CHANGE_ROUTE, changeRouteSaga);
     yield takeLatest(LOCATION_CHANGE, navigationSaga);
+    yield takeLatest(types.CHANGE_ROUTE, changeRouteSaga);
 }

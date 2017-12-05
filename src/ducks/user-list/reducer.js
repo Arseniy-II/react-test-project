@@ -2,11 +2,10 @@ import types from './types';
 import {filterUsers} from 'utils';
 
 export const initialAppState = {
-    isFetching: true,
-    error: null,
-    list: [],
     allIds: [],
-    byId: {}
+    byId: {},
+    isFetching: true,
+    error: null
 };
 
 export default function (state = initialAppState, action) {

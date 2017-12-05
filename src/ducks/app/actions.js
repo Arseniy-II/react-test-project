@@ -4,6 +4,7 @@ export default {
     /**
      * Request fetch i18n
      *
+     * @param {string} locale
      * @return {Object}
      */
     fetchI18nRequest(locale) {
@@ -16,6 +17,8 @@ export default {
     /**
      * Successfully fetch i18n
      *
+     * @param {Object} i18n
+     * @param {string} locale
      * @return {Object}
      */
     fetchI18nSuccess({i18n, locale}) {
@@ -29,12 +32,13 @@ export default {
     /**
      * Error on fetch i18n
      *
+     *  @param {Error} error
      * @return {Object}
      */
-    fetchI18nError(i18n) {
+    fetchI18nError(error) {
         return {
             type: types.FETCH_I18N_ERROR,
-            i18n
+            error
         };
     }
 };

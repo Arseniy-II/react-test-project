@@ -2,10 +2,10 @@ import types from './types';
 import {LOCALES} from 'constants.js';
 
 export const initialAppState = {
-    isFetching: true,
-    error: null,
     locale: LOCALES.DEFAULT,
-    i18n: null
+    i18n: null,
+    isFetching: true,
+    error: null
 };
 
 export default function (state = initialAppState, action) {
