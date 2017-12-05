@@ -1,4 +1,10 @@
-_React Redux test project_
+_React Redux project_
+
+- Dynamic internalization
+- Video autoPlay
+- Animation on search
+- Query parameters for search
+- And other
 
 ## Prerequisites
 
@@ -12,6 +18,12 @@ npm install
 ```
 
 ## Run application
-- `npm run dev` - run webpack dev server;
-- `npm run build` - build production bundle;
-- `npm run server` - start local server with to serve api response.
+Development
+
+- `npm run server` - start local server to serve api response;
+- `npm run dev` - run webpack dev server (http://localhost:8080).
+
+Production
+
+- `npm run build` - build SPA;
+- `npm run server` - start local server (http://localhost:8081). 
